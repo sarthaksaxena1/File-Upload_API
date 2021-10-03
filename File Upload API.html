@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Select Code: <input type="file" name="payload" id="selectfile">
+    <button onclick="vanshaj()">Upload</button>
+</body>
+<script>
+
+   function vanshaj()
+   {
+    let formData = new FormData()
+formData.append('selectfile', selectfile)
+  var url = "https://prod-24.centralindia.logic.azure.com/workflows/78d6df0ed1384ee0b7d04918f1a32b85/triggers/request/paths/invoke?api-version=2016-10-01&sp=/triggers/request/run&sv=1.0&sig=i6gXuS7-5_fFVf-0u8M4UfymINDULCMifsscfN5cPKM";
+var xhr = new XMLHttpRequest();
+xhr.open("PUT", url);
+
+xhr.setRequestHeader("Name", "Vanshaj Johri");
+xhr.setRequestHeader("Email", "vanshaj.pkp@gmail.com");
+xhr.setRequestHeader("Password", btoa("vanshaj.pkp@gmail.com"));
+xhr.setRequestHeader("College", "SRM Institute Of Science & Technology");
+xhr.setRequestHeader("StudentId", "RA1811003030276");
+xhr.setRequestHeader("FileName", "vanshaj.html");
+xhr.setRequestHeader("Content-Type", "multipart/form-data");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+xhr.send(formData);
+} 
+  </script>
+</html>
